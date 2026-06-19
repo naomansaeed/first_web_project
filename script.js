@@ -27,11 +27,13 @@ console.log(0.1 + 0.2 === 0.3);
 
 // function to check truthyness
 function isTruthy(value) {
-  if (value === true) {
-    return true;
-  } else {
-    return false;
-  }
+  return Boolean(value);
+
+  // Option 2: Double negation (idiomatic)
+  // return !!value;
+
+  // Option 3: Implicit coercion in condition
+  // return value ? true : false;
 }
 
 console.log(isTruthy(0));
