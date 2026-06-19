@@ -1,2 +1,3 @@
 # My First Webpage
-Just practicing HTML and CSS basics.
+[x] Practicing HTML and CSS basics.
+[ ] Practicing Javascript.
