@@ -58,3 +58,29 @@ let age = 17;
 let accessLevel = isPremiumUser && age >= 18 ? "VIP" : "Standard";
 
 console.log(accessLevel); // Output: "Standard" (age check fails)
+
+// Determine subscription fee based on plan type
+let planType = "pro";
+let monthlyFee;
+// using switch statements.
+switch (planType) {
+  case "free":
+    monthlyFee = 0;
+    break;
+  case "basic":
+    monthlyFee = 5;
+    break;
+  case "pro":
+    monthlyFee = 10;
+    break;
+  case "enterprise":
+    monthlyFee = 25;
+    break;
+  default:
+    monthlyFee = null;
+    console.log("You have failed to select a plan.");
+    break;
+}
+console.log(
+  `You have selected the ${planType} plan which costs ${monthlyFee} $s.`,
+);
