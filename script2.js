@@ -66,3 +66,16 @@ function additionalBonus(inputScore) {
 }
 
 console.log(additionalBonus(70));
+
+let level = "A";
+
+function promotePlayer() {
+  if (level === "A") {
+    let level = "B"; // ⚠️ New variable shadows the outer one
+    console.log("Inside if:", level);
+  }
+  console.log("Inside function:", level);
+}
+
+promotePlayer();
+console.log("Outside function:", level);
