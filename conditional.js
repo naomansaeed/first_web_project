@@ -112,15 +112,35 @@ const PRICING = {
   basic: 5,
   standard: 10,
   pro: 15,
-  business: 20,
+  team: 20,
   enterprise: 25,
 };
 // This object lives in memory like a dictionary:
 // "free" → 0, "basic" → 5, etc.
 
 // STEP 2: Access values using bracket notation
-let userPlan = "pro";
-let monthlyPayment = PRICING[userPlan];
+let userPlan = "team";
+//let monthlyPayment = PRICING[userPlan];
 // JavaScript looks up the property "pro" in PRICING → returns 15
 
-console.log(monthlyPayment);
+//console.log(monthlyPayment);
+// using hasOwn
+if (Object.hasOwn(PRICING, userPlan)) {
+  let monthlyPayment = PRICING[userPlan];
+  console.log(monthlyPayment);
+} else {
+  console.log("No valid plan selected.");
+}
+
+/*
+ALTERNATE METHOD:
+// 3. Look up price with safe fallback
+let monthlyPrice = PRICING[planType] ?? null;
+
+// 4. Handle result
+if (monthlyPrice === null) {
+  console.log("❌ You have failed to select a valid plan.");
+} else {
+  console.log(`✅ You selected the ${planType} plan: $${monthlyPrice}/month`);
+}
+*/
