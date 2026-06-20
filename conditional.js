@@ -84,3 +84,43 @@ switch (planType) {
 console.log(
   `You have selected the ${planType} plan which costs ${monthlyFee} $s.`,
 );
+
+let plan = "basic";
+let monthlyPrice =
+  plan === "free"
+    ? 0
+    : plan === "basic"
+      ? 5
+      : plan === "pro"
+        ? 10
+        : plan === "enterprise"
+          ? 25
+          : null; // ✅ Just the value, no console.log here
+
+// Handle invalid case separately for clarity
+if (monthlyPrice === null) {
+  console.log("You have failed to select a plan.");
+} else {
+  console.log(
+    `You have selected the ${plan} plan which costs $${monthlyPrice}.`,
+  );
+}
+
+// STEP 1: Define a constant object that maps keys → values
+const PRICING = {
+  free: 0,
+  basic: 5,
+  standard: 10,
+  pro: 15,
+  business: 20,
+  enterprise: 25,
+};
+// This object lives in memory like a dictionary:
+// "free" → 0, "basic" → 5, etc.
+
+// STEP 2: Access values using bracket notation
+let userPlan = "pro";
+let monthlyPayment = PRICING[userPlan];
+// JavaScript looks up the property "pro" in PRICING → returns 15
+
+console.log(monthlyPayment);
