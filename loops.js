@@ -65,3 +65,9 @@ for (const num of numbers) {
   }
   console.log(num);
 }
+
+let myInput;
+do {
+  myInput = prompt("Please enter a number between 1-10: ");
+  console.log(`You typed: ${myInput}`);
+} while (myInput !== 0);
