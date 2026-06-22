@@ -42,3 +42,26 @@ tasks.forEach((task, index, arr) => {
   const status = task.done ? "✅" : "⏳";
   console.log(`${index + 1}. ${status} ${task.title}`);
 });
+
+// 🔴 This code has a bug. Find and fix it.
+let count = 0;
+while (count < 5) {
+  console.log("Count:", count);
+  // 👇 What's missing?
+  count++;
+}
+
+// 🔴 This forEach can't stop early. Rewrite with for...of.
+let numbers = [10, 20, 30, 40];
+numbers.forEach((num) => {
+  if (num === 30) return; // ❌ This only skips one item, doesn't break
+  console.log(num);
+});
+// Goal: Print 10, 20 — then STOP when hitting 30
+
+for (const num of numbers) {
+  if (num === 30) {
+    break;
+  }
+  console.log(num);
+}
