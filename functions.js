@@ -58,20 +58,24 @@ console.log(calculateArea(-3));
 console.log(calculateArea("10"));
 
 function calculateDiscount(originalPrice, discountPercent) {
-  if (typeof originalPrice !== "number" || originalPrice < 0) {
+  if (typeof originalPrice !== "number" || 
+    originalPrice < 0 ||
+    isNaN(originalPrice)
+    ) {
     console.error(`Error: original price must be a non negative number.`);
     return null;
   }
   if (
     typeof discountPercent !== "number" ||
     discountPercent < 0 ||
-    discountPercent > 100
+    discountPercent > 100 ||
+    isNaN(discountPercent)
   ) {
     console.error(`Error: Discount Percent should be between 0 and 100.`);
     return null;
   }
 
-  const finalPrice = originalPrice * discountPercent;
+  const finalPrice = originalPrice * (1 - discountPercent / 100);
   return finalPrice;
 }
 
