@@ -55,3 +55,29 @@ const calculateTip = function (bill, percent) {
 }
 
 console.log(calculateTip(3000,5));
+
+const formatPrice = amount => {
+	if (typeof amount !== "number" ||
+			Number.isNaN(amount) ||
+			!Number.isFinite(amount)
+		) {
+		console.error(`Error: Please provide a valid numerical value.`);
+		return null;
+	}
+
+	const formatedPrice = "$" + amount.toFixed(2);
+	return formatedPrice;
+};
+
+console.log(formatPrice(42));
+console.log(formatPrice(3.14159));
+console.log(formatPrice(null));
+
+
+const noodles = {
+	name: "crispy",
+	amount: 56,
+	quality: "A-"
+};
+
+console.log(formatPrice(noodles.amount));
