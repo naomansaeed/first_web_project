@@ -45,3 +45,33 @@ const failingScore = scores.filter(score => score < 70);
 
 console.log(passingScores);
 console.log(failingScore);
+
+const members = [
+  { id: 1, name: "Alice", role: "user", active: true },
+  { id: 2, name: "Bob", role: "admin", active: true },
+  { id: 3, name: "Charlie", role: "admin", active: false },
+  { id: 4, name: "Diana", role: "admin", active: true }
+];
+
+const activeAdmin = members.find(
+    member => {
+        // one by one fro each entry, the value of role property & active property is checked
+        return member.role === "admin" && member.active === true;
+        // upon finding the first match that satisfies both conditions simultaneausly, the search will end.
+    }
+);
+
+console.log(activeAdmin);
+
+const marks = [95, 82, 76, 68, 54];
+// Result: ["A", "B", "C", "D", "F"]
+
+const grades = marks.map(mark =>
+  mark >= 90 ? "A" :
+  mark >= 80 ? "B" :
+  mark >= 70 ? "C" :
+  mark >= 60 ? "D" : "F"
+);
+
+console.log(marks);
+console.log(grades);
