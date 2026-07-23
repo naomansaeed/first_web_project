@@ -75,3 +75,12 @@ const grades = marks.map(mark =>
 
 console.log(marks);
 console.log(grades);
+
+// understanding the reduce method
+
+const myNumbers = [85, 92, 78, 90, 88];
+// acc: running total of scores processed so far (starts at 0)
+const mySum = myNumbers.reduce((acc, curr) => acc + curr, 0);
+const avg = mySum / myNumbers.length;
+
+console.log(avg.toFixed(2));
