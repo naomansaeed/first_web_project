@@ -87,3 +87,79 @@ console.log(movie["box-office"]);
 console.log(movie.cast["male-lead"]);
 console.log(movie[sKey]);
 console.log(movie["award_"]+" "+year);
+
+console.log("fifth object starts here.");
+
+// 📦 Object Definition
+const taskManager = {
+  tasks: [], // Data storage property
+
+  // ✅ SHORTHAND SYNTAX (Modern, Preferred)
+  // Receives a string, pushes it to the tasks array
+  addTask(taskName) {
+    // NOTE: For Component 2a, we use the object's name directly to access its properties.
+    // In 2b, we will replace `taskManager.tasks` with `this.tasks` for dynamic binding.
+    taskManager.tasks.push(taskName);
+    console.log(`✅ Task added: "${taskName}"`);
+  },
+
+  // ✅ FUNCTION EXPRESSION SYNTAX (Older, but identical execution flow here)
+  // Returns a formatted string of all current tasks
+  getSummary: function() {
+    if (taskManager.tasks.length === 0) {
+      return "No tasks yet.";
+    }
+    // Template literal + join() for clean string generation
+    return `📋 Tasks (${taskManager.tasks.length}):\n- ${taskManager.tasks.join("\n- ")}`;
+  }
+};
+
+// 🔍 INVOCATION PATTERNS
+// 1. Calling with arguments
+taskManager.addTask("Review PR #42");
+taskManager.addTask("Update documentation");
+
+// 2. Calling and capturing return value
+const summary = taskManager.getSummary();
+console.log(summary);
+
+// Output:
+// ✅ Task added: "Review PR #42"
+// ✅ Task added: "Update documentation"
+// 📋 Tasks (2):
+// - Review PR #42
+// - Update documentation
+
+console.log("sixth object starts here.");
+
+const bankAccount = {
+    balance: 0,
+
+    deposit(amount) {
+        return bankAccount.balance += amount;
+    },
+
+    withdraw(amount) {
+        if (bankAccount.balance === 0) {
+            console.log("Account is empty");
+            return null;
+        }
+        else if (amount > bankAccount.balance) {
+            console.log("Insufficient funds");
+            return null;
+        }
+        else {
+            const withdrawal = amount;
+            bankAccount.balance -= amount;
+            return withdrawal;
+        }
+    }
+};
+
+console.log(bankAccount.deposit(100));
+console.log(bankAccount.withdraw(30));
+console.log(bankAccount.balance);
+
+const addMoney = bankAccount.deposit;
+addMoney(50);
+console.log(bankAccount.balance);
