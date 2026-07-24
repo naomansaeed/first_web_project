@@ -84,3 +84,25 @@ const mySum = myNumbers.reduce((acc, curr) => acc + curr, 0);
 const avg = mySum / myNumbers.length;
 
 console.log(avg.toFixed(2));
+
+const students = [
+  {id:1, name:"Alice", score:[95, 88, 92], active:true},
+  {id:2, name:"Bob", score:[70, 65, 80], active:false},
+  {id:3, name:"Charlie", score:[85, 90, 88], active:true},
+  {id:4, name:"Diana", score:[60, 55, 62], active:true},
+]
+
+const activeStudents = students.filter(student => student.active === true);
+
+const processed = activeStudents.map(student => ({
+  ...student, 
+   averageScore : parseFloat((student.score.reduce((acc, curr) => acc + curr, 0) / student.score.length).toFixed(2))
+}));
+
+//const topper = processed.find(score => processed.averageScore > 90);
+
+const topStudent = processed.reduce((highest, current) => {
+  return current.averageScore > highest.averageScore ? current : highest ;
+}); 
+
+console.log(topStudent);
