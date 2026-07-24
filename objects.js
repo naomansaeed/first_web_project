@@ -29,7 +29,7 @@ console.log(product["warranty"]);       // undefined ✅ (bracket notation)
 // Neither throws an error; they simply return `undefined`
 console.log("new exercise starts here.");
 // new exercise
-const year = 2018;
+const year = 2012;
 // Creating a book object
 const book = {
     title: "Anne of Green Gables",
@@ -45,3 +45,45 @@ const KeytoFind = "price";
 console.log(book[KeytoFind]);
 // non existent key
 console.log(book["upcoming-reading-session"]);
+
+// third object starts here
+
+console.log("third object starts here");
+//---
+
+const user = {
+  profile: {
+    name: "Alice",
+    "contact-info": {
+      email: "alice@example.com",
+      "phone-number": "+1-555-1234"
+    }
+  }
+};
+
+// ✅ Safe nested access with bracket notation for special keys
+const name = user.profile.name;                          // "Alice"
+const email= user.profile["contact-info"].email;         // "alice@example.com"
+const ph = user.profile["contact-info"]["phone-number"]; // "+1-555-1234"
+
+console.log(name, email, ph);
+
+console.log("fourth object starts here.");
+const sKey = "releaseYear";
+const movie = {
+    title: "Tangled",
+    director: "Byron Howard",
+    releaseYear: 2010,
+    "box-office": "$ 592.5 M",
+    "award_": "Grammy",
+    cast: {
+        "female-lead": "Mandy Moore",
+        "male-lead": "Zachary Levi"
+    }
+};
+//const award = movie["award_"]+year;
+console.log(movie.title);
+console.log(movie["box-office"]);
+console.log(movie.cast["male-lead"]);
+console.log(movie[sKey]);
+console.log(movie["award_"]+" "+year);
