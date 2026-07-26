@@ -163,3 +163,28 @@ console.log(bankAccount.balance);
 const addMoney = bankAccount.deposit;
 addMoney(50);
 console.log(bankAccount.balance);
+
+console.log("seventh object starts here.");
+
+const shoppingCart = {
+    items: [],
+    addItem(item) {
+        this.items.push(item);
+        return this.items;
+    },
+    getTotalItems(){
+        return this.items.length;
+    }
+};
+
+console.log(shoppingCart.addItem("Apple"));
+console.log(shoppingCart.getTotalItems());
+/* This gives Type Error.
+const addStandalone = shoppingCart.addItem;
+addStandalone("Headphones");
+console.log(addStandalone("Headphones"));
+*/
+
+const addStandalone = shoppingCart.addItem.bind(shoppingCart);
+console.log(addStandalone("Laptop"));
+console.log(shoppingCart.getTotalItems());
