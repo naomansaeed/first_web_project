@@ -188,3 +188,25 @@ console.log(addStandalone("Headphones"));
 const addStandalone = shoppingCart.addItem.bind(shoppingCart);
 console.log(addStandalone("Laptop"));
 console.log(shoppingCart.getTotalItems());
+
+console.log("eighth object starts here.");
+
+const userProfile = {
+  name: "Tom",
+  role: "user"
+};
+
+userProfile.visibility = "members only";
+userProfile.role = "moderator";
+
+console.log(Object.hasOwn(userProfile,'visibility'));
+const lastLogin = userProfile.lastLogin ?? "this is a new acount.";
+console.log(lastLogin);
+
+try {
+  delete userProfile.nonExistentKey;
+} catch (error) {
+  console.log("Problem occured.", error.message);
+}
+
+console.log(userProfile);
