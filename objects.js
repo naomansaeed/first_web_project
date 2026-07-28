@@ -210,3 +210,19 @@ try {
 }
 
 console.log(userProfile);
+
+console.log("nineth object starts here.");
+
+const studentRecord = {
+  name: "Damian",
+  "Registration Number": "L7R3V9",
+  GPA: 2.15,
+  "Current Semester": 3
+};
+
+const keys = Object.keys(studentRecord);
+console.log("Keys: ", keys);
+const values = Object.values(studentRecord);
+console.log("Values: ", values);
+const entries = Object.entries(studentRecord);
+console.log("Entries: ", entries);
