@@ -243,3 +243,15 @@ const appState ={
 const refCopy = appState;
 refCopy.settings.theme = "dark";
 console.log(appState.settings.theme);
+
+const shallowCopy = {...appState};
+shallowCopy.user = {id: 2, name: "New_User"};
+shallowCopy.settings.notifications = false;
+console.log(shallowCopy.user);
+console.log(appState.settings.notifications);
+
+const deepCopy = structuredClone(appState);
+deepCopy.user.name = "Isolated_User";
+deepCopy.settings.theme = "retro";
+console.log(appState);
+console.log(deepCopy);
