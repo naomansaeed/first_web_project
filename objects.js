@@ -226,3 +226,20 @@ const values = Object.values(studentRecord);
 console.log("Values: ", values);
 const entries = Object.entries(studentRecord);
 console.log("Entries: ", entries);
+
+//componenet 5 starts here
+
+const original = {name: "Alice", score: 85};
+const copy = original;
+copy.score = 90;
+console.log(original.score);
+
+const appState ={
+  user: {id: 1, name: "Dev_Alex"},
+  settings: {theme: "dark", notifications: true},
+  logs:[]
+};
+
+const refCopy = appState;
+refCopy.settings.theme = "dark";
+console.log(appState.settings.theme);
