@@ -255,3 +255,33 @@ deepCopy.user.name = "Isolated_User";
 deepCopy.settings.theme = "retro";
 console.log(appState);
 console.log(deepCopy);
+
+//--- gameConfig Object
+const gameConfig = {
+  difficulty: "Normal",
+  graphics: {resolution:"HDTV", max_fps:60},
+  plugins: ["hd_audio", "smooth_shaders"]
+};
+
+const referenceCopy = gameConfig;
+referenceCopy.graphics.max_fps = 120;
+console.log(gameConfig.graphics.max_fps); // I predict that the value of original has changed to 120.
+console.log(referenceCopy.graphics.max_fps); // of course, this will be 120
+
+const lowCopy = {...gameConfig};
+lowCopy.difficulty = "Hard";
+console.log(gameConfig.difficulty); // I think it will be "Normal"
+console.log(lowCopy.difficulty); // This should be "Hard"
+
+lowCopy.plugins.push("Anti_Cheat");
+console.log(gameConfig.plugins.length); // 3?
+console.log(lowCopy.plugins.length); // 3
+
+const highCopy = structuredClone(gameConfig);
+highCopy.graphics.resolution = "4K";
+highCopy.plugins.push("Voice_Chat");
+
+console.log(gameConfig.graphics.resolution);
+console.log(highCopy.graphics.resolution);
+console.log(gameConfig.plugins);
+console.log(highCopy.plugins);
