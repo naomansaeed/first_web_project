@@ -8,7 +8,21 @@
     </head>
     <body>
         <!-- Your visible content goes here -->
+         <main id="app">
+            <h1 class="title">Welcome</h1>
+                <ul class="menu">
+                    <li class="item active">Home</li>
+                    <li class="item">About</li>
+                    <li class="item">Contact</li>
+                </ul>
+            <button data-action="save" disabled>Save</button>
+            <div id="status-card" class="card pending">
+                <h2 id="status-title">Processing Payment...</h2>
+                <p class="details">Please wait while we verify your card.</p>
+                <button id="cancel-btn" class="btn primary">Cancel</button>
+            </div>
+        </main>
 
-        <script src="objects.js"></script>
+        <script src="dom.js"></script>
     </body>
 </html>
