@@ -70,4 +70,19 @@ console.log(parentEl.textContent);
 console.log(innerSpan.textContent);
 console.log(sibEl.textContent);
 console.log(todoEl.textContent);
-console.log(editBtn.nextSibling.textContent);
+console.log(editBtn.nextSibling);
+
+// ---
+
+const toast = document.createElement("div");
+
+toast.classList.add("notification", "success");
+const mySpan = document.createElement("span");
+mySpan.textContent = "Settings saved successfully!";
+toast.appendChild(mySpan);
+
+app.prepend(toast);
+
+setTimeout(() => {
+    toast.remove();
+}, 5000);
