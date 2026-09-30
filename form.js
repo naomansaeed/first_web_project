@@ -33,3 +33,16 @@ middle.addEventListener("click", (e) => {
   e.stopPropagation();
 });
 btn.addEventListener("click", () => console.log("BUTTON"));
+
+const toolbar = document.getElementById("toolbar");
+toolbar.addEventListener('click', (e) => {
+    const pressedBtn = e.target.closest(".tool-btn");
+
+    if (!pressedBtn) {
+        console.log("Invalid Target");
+        return;
+    } else {
+        const myAction = pressedBtn.dataset.action;
+        console.log(`Performing action: ${myAction}`);
+    }
+});
