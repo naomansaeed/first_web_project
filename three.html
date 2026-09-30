@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Handling</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <header></header>
@@ -20,7 +21,23 @@
             </label>
             <button type="submit">Register</button>
         </form>
-        
+        <div class="separtor"></div>
+        <section>
+            <form id="feedback-form">
+                <input type="text" name="name" placeholder="Your name">
+                <input type="email" name="email" placeholder="Your email">
+                <textarea name="message" placeholder="Your feedback..."></textarea>
+                <select name="category">
+                    <option value="bug">Bug Report</option>
+                    <option value="feature">Feature Request</option>
+                    <option value="general">General Feedback</option>
+                </select>
+                <label>
+                    <input type="checkbox" name="urgent"> Mark as urgent
+                </label>
+                <button type="submit">Send Feedback</button>
+            </form>
+        </section>
     </main>
     <footer></footer>
     <script src="form2.js"></script>
