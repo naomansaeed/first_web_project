@@ -38,6 +38,23 @@
                 <button type="submit">Send Feedback</button>
             </form>
         </section>
+        <div class="separtor"></div>
+        <section>
+            <form id="signup-form">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com">
+                <span class="error-msg" id="email-error" style="display: none; color: red;">
+                    Please enter a valid email address.
+                </span>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password">
+                    <span id="password-feedback" class="feedback-text"></span>
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+            
+        </section>
     </main>
     <footer></footer>
     <script src="form2.js"></script>

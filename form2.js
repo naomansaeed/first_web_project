@@ -94,3 +94,72 @@ const activeConfig = Object.fromEntries(
 );
 
 console.log(activeConfig);
+
+//---
+
+// email validation (inline)
+const emailInput = document.getElementById("email");
+const errorMsg = document.getElementById("email-error");
+
+// Helper function to check if email is valid (using a simple Regex)
+const isValidEmail = (email) => {
+  // This regex checks for standard "text@text.text" format
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+};
+
+// 1. Validate on BLUR (when user leaves the field)
+emailInput.addEventListener("blur", (e) => {
+  const value = e.target.value.trim();
+  
+  // Only validate if they actually typed something
+  if (value !== "" && !isValidEmail(value)) {
+    emailInput.classList.add("invalid"); // Add red border via CSS
+    errorMsg.style.display = "inline";   // Show error text
+  }
+});
+
+// 2. Clear errors on INPUT (as they type to fix it)
+emailInput.addEventListener("input", (e) => {
+  const value = e.target.value.trim();
+  
+  if (isValidEmail(value)) {
+    emailInput.classList.remove("invalid");
+    errorMsg.style.display = "none";
+  }
+});
+
+// password validation
+
+// fetching DOM elements
+const password = document.getElementById("password");
+const passwordFeedback = document.getElementById("password-feedback");
+
+password.addEventListener('input', (e) => {
+  //appearantly trimming password is a bad idea.
+  const enteredPassword = e.target.value;
+
+  // responding to empty input
+  if (enteredPassword.length === 0) {
+    passwordFeedback.textContent = "Password cannot be empty.";
+    passwordFeedback.className = "feedback-text";
+    return;
+  }
+
+  // checking for number presence
+  const hasNumber = /\d/.test(enteredPassword);
+
+  //validation logic
+  if (enteredPassword.length < 8) {
+    passwordFeedback.textContent = "Too Short";
+    passwordFeedback.className = "feedback-text weak";
+  }
+  else if (!hasNumber) {
+    passwordFeedback.textContent = "Add a number";
+    passwordFeedback.className = "feedback-text medium";
+  }
+  else {
+    passwordFeedback.textContent = "Strong Password";
+    passwordFeedback.className = "feedback-text strong";
+  }
+});
