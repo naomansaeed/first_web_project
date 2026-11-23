@@ -33,10 +33,3 @@ copy2.push('wax');
 console.log(cart2);   // ['board']
 console.log(alias);  // ['board']
 console.log(copy2);   // ['board', 'wax']
-
-{
-  const cart = ['board'];
-  const next = addItem(cart, 'wax');
-  console.log(cart); // must print ['board']
-  console.log(next); // must print ['board', 'wax']
-}
